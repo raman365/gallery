@@ -1,0 +1,84 @@
+.App {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 10px;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin: -10px; /* gutter size offset */
+  width: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.my-masonry-grid_column {
+  padding: 10px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.my-masonry-grid img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.my-masonry-grid_column img {
+  opacity: 0; /* Initially set opacity to 0 */
+  transition: opacity 0.5s ease-in-out; /* Add a smooth transition effect */
+}
+
+.my-masonry-grid_column img.loaded {
+  opacity: 1; /* Set opacity to 1 when the image is loaded */
+}
+
+.image-preview img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 0 6px;
+}
+
+.image-preview {
+  margin: 0 -6px;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(255 255 255 / 80%);
+  font-family: "SignPainter", Sans-serif;
+  font-size: 24px;
+}
+
+.modal-content {
+  max-width: 1200px;
+  text-align: center;
+  padding: 0 30px;
+}
+
+button {
+  cursor: pointer;
+  background: #5ea9aa;
+  color: white;
+  border: none;
+  padding: 5px 20px;
+  font-size: 20px;
+  font-family: "SignPainter", Sans-serif;
+  display: block;
+}
+
+.upload {
+  margin-bottom: 20px;
+}
