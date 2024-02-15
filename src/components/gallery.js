@@ -6,6 +6,7 @@ import Masonry from "react-masonry-css";
 import UploadPreview from "./uploadpreview";
 import Lightbox from "yet-another-react-lightbox"; // Import the Lightbox component
 import "yet-another-react-lightbox/styles.css";
+import Download from "yet-another-react-lightbox/plugins/download";
 
 function Gallery() {
   const [imageUploads, setImageUploads] = useState([]);
@@ -144,6 +145,7 @@ function Gallery() {
         close={() => setLightboxOpen(false)}
         slides={imageList.map((url, index) => ({ src: url }))}
         index={currentIndex} // Set the index to the currentIndex state
+        plugins={[Download]}
       />
 
       <Masonry
