@@ -80,5 +80,17 @@ button {
 }
 
 .upload {
+  margin-left: 10px;
+}
+
+.download-all {
+  margin-right: 10px;
+}
+
+.upload-download {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 20px;
+  max-width: 1200px;
 }

@@ -7,6 +7,8 @@ import UploadPreview from "./uploadpreview";
 import Lightbox from "yet-another-react-lightbox"; // Import the Lightbox component
 import "yet-another-react-lightbox/styles.css";
 import Download from "yet-another-react-lightbox/plugins/download";
+import JSZip from "jszip";
+import FileSaver from "file-saver";
 
 function Gallery() {
   const [imageUploads, setImageUploads] = useState([]);
@@ -113,14 +115,36 @@ function Gallery() {
     1100: 2,
   };
 
+  const downloadAllImages = async () => {
+    const zip = new JSZip();
+    const folder = zip.folder("wedding-images");
+
+    for (let i = 0; i < imageList.length; i++) {
+      const url = imageList[i];
+      const response = await fetch(url);
+      const blob = await response.blob();
+      folder.file(`image_${i}.jpg`, blob);
+    }
+
+    zip.generateAsync({ type: "blob" }).then((content) => {
+      FileSaver.saveAs(content, "wedding-images.zip");
+    });
+  };
+
   return (
     <div className="App">
-      <button
-        className="upload"
-        onClick={() => document.getElementById("fileInput").click()}
-      >
-        Upload
-      </button>
+      <div className="upload-download">
+        <button
+          className="upload"
+          onClick={() => document.getElementById("fileInput").click()}
+        >
+          Upload
+        </button>
+        <button className="download-all" onClick={downloadAllImages}>
+          Download All
+        </button>
+      </div>
+
       <input
         id="fileInput"
         type="file"
