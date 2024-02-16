@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { storage } from "./firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { format } from "date-fns";
@@ -131,6 +131,8 @@ function Gallery() {
     });
   };
 
+  const fileInputRef = useRef(null);
+
   return (
     <div className="App">
       <div className="upload-download">
@@ -146,6 +148,7 @@ function Gallery() {
       </div>
 
       <input
+        ref={fileInputRef}
         id="fileInput"
         type="file"
         onChange={handleFileChange}
@@ -159,6 +162,9 @@ function Gallery() {
           onClose={() => {
             setShowUploadModal(false);
             resetImageUploads();
+            if (fileInputRef.current) {
+              fileInputRef.current.value = null; // Reset file input value
+            }
           }}
           onConfirm={uploadImages}
         />
