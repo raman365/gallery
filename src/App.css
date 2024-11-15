@@ -7,6 +7,29 @@
   padding: 50px 10px;
 }
 
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "SignPainter", Sans-serif;
+  font-size: 46px;
+  color: #5ea9aa;
+  font-weight: bold;
+  margin-bottom: 50px;
+  line-height: normal;
+}
+
+@media only screen and (max-width: 499px) {
+  .heading {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  .App {
+    padding: 25px 10px;
+  }
+}
+
 .my-masonry-grid {
   display: flex;
   margin: -10px; /* gutter size offset */
@@ -68,7 +91,8 @@
   padding: 0 30px;
 }
 
-button {
+.upload,
+.download-all {
   cursor: pointer;
   background: #5ea9aa;
   color: white;
@@ -79,6 +103,12 @@ button {
   display: block;
 }
 
+.upload:focus,
+.upload:hover,
+.download-all:focus,
+.download-all:hover {
+  background: #5ea9aa;
+}
 .upload {
   margin-left: 10px;
 }
@@ -93,4 +123,28 @@ button {
   justify-content: space-between;
   margin-bottom: 20px;
   max-width: 1200px;
+}
+
+.yarl__button {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background-color: initial !important;
+  background-color: var(--yarl__button_background_color, #0000) !important;
+  border: 0 !important;
+  border: var(--yarl__button_border, 0) !important;
+  color: #fffc !important;
+  color: var(--yarl__color_button, #fffc) !important;
+  cursor: pointer !important;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.8)) !important;
+  filter: var(
+    --yarl__button_filter,
+    drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.8))
+  ) !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  margin: var(--yarl__button_margin, 0) !important;
+  outline: none !important;
+  padding: 8px !important;
+  padding: var(--yarl__button_padding, 8px) !important;
 }

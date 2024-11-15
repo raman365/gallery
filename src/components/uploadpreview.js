@@ -14,8 +14,8 @@ function UploadPreview({ imageUploads, onClose, onConfirm }) {
             />
           ))}
         </div>
-        <button style={{ margin: '19px auto 0'}} onClick={onConfirm}>Confirm Upload</button>
-        <button style={{ margin: '25px auto 0', background: '#ca1515'}} onClick={onClose}>Cancel</button>
+        <button style={{ margin: '20px 5px 0px', background: '#5ea9aa', color: 'white', border: 'none'}} onClick={onConfirm}>Confirm Upload</button>
+        <button style={{ margin: '20px 5px 0px', background: '#ca1515', color: 'white', border: 'none'}} onClick={onClose}>Cancel</button>
       </div>
     </div>
   );

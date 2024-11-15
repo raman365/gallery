@@ -135,6 +135,14 @@ function Gallery() {
 
   return (
     <div className="App">
+      <div className="heading">
+      <div>
+        Nicole & Alex
+      </div>
+      <div>
+        Wedding Gallery
+      </div>
+      </div>
       <div className="upload-download">
         <button
           className="upload"
