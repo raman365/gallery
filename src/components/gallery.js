@@ -30,7 +30,7 @@ function Gallery() {
     localStorage.setItem("currentIndex", newIndex.toString());
   };
 
-  const imageListRef = ref(storage, "wedding-images/");
+  const imageListRef = ref(storage, "test-images/");
 
   const handleFileChange = (event) => {
     const files = event.target.files;
@@ -63,7 +63,7 @@ function Gallery() {
         const nextImageNumber = highestImageNumber + 1 + index;
         const imageName = `image${nextImageNumber}_${currentTime}`;
         updateAndStoreIndex(nextImageNumber);
-        const imageRef = ref(storage, `wedding-images/${imageName}`);
+        const imageRef = ref(storage, `test-images/${imageName}`);
         return uploadBytes(imageRef, file);
       });
 
@@ -117,7 +117,7 @@ function Gallery() {
 
   const downloadAllImages = async () => {
     const zip = new JSZip();
-    const folder = zip.folder("wedding-images");
+    const folder = zip.folder("test-images");
 
     for (let i = 0; i < imageList.length; i++) {
       const url = imageList[i];
@@ -127,7 +127,7 @@ function Gallery() {
     }
 
     zip.generateAsync({ type: "blob" }).then((content) => {
-      FileSaver.saveAs(content, "wedding-images.zip");
+      FileSaver.saveAs(content, "test-images.zip");
     });
   };
 
