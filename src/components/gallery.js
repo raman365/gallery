@@ -137,10 +137,7 @@ function Gallery() {
     <div className="App">
       <div className="heading">
       <div>
-        Nicole & Alex
-      </div>
-      <div>
-        Wedding Gallery
+        Gallery Feature
       </div>
       </div>
       <div className="upload-download">
